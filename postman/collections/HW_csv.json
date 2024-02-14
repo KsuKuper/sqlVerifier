@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "cd603f9e-5814-4eb2-9f16-9b3eb61f24a4",
+		"name": "HW_csv",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20300544-cd603f9e-5814-4eb2-9f16-9b3eb61f24a4"
+	},
+	"item": [
+		{
+			"name": "Create task with cvs file",
+			"item": [
+				{
+					"name": "create task",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b881e79c-c824-49f6-8f7a-8cd1da55989c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b06ad17d-78f2-4938-88fa-e4c0a7b968f1",
+								"exec": [
+									"pm.iterationData.get('title');",
+									"console.log(pm.iterationData.get('title')); ",
+									"pm.iterationData.get('text');",
+									"console.log(pm.iterationData.get('text'));",
+									"pm.iterationData.get('answer');",
+									"console.log(pm.iterationData.get('answer'));",
+									"",
+									"pm.test(\"ResponseCode is 201\", function (){",
+									"    console.log(pm.iterationData.get('responseCode'));",
+									"});",
+									"pm.test(\"ResponseMessage is Created\", function (){",
+									"    console.log(pm.iterationData.get('responseMessage'));",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "eae48a56-9368-4dff-a63f-62d48f7033e3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTQ5MzQwNCwiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDE0MDcwMDR9.lLMMHeAYi4KBEpOdtnUUIHDZDoSrMWx5ujtK22MBbMVsNbFbqUxON68WpAZ7Q1Wmf9EinH1N6wOEIeDdkJwrpQ"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "Webstorm-477bfb66=fe2764b1-cf24-4190-b17a-b4d72a3c50d4"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:8080"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:8080/task/new"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": {{title}},\n    \"text\": {{text}},\n    \"answer\": {{answer}}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/tasks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "0ed49671-ae36-41d8-a322-d09ac29c6e29",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{id_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "167ecdfa-a79e-467e-83ad-995f86be9343",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a936d3d3-3c8c-4da5-af2a-81ddc4f28d75",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64e796dc-e424-40e0-9819-03ccb8387187",
+						"exec": [
+							"let jsonBody = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body contains id_token\", function () {",
+							"    pm.expect(jsonBody).to.have.property(\"id_token\");",
+							"    pm.collectionVariables.set(\"id_token\", jsonBody.id_token);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "73587cca-b481-41a2-8e2c-d830416cc824",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "Webstorm-477bfb66=fe2764b1-cf24-4190-b17a-b4d72a3c50d4"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8080"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8080/login"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{user}}\",\n    \"password\": \"{{password}}\",\n    \"rememberMe\": false\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/authenticate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{id_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dec467c1-8986-4156-9bf8-a9873fd4a668",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d1aaf458-1b88-468b-9ec8-60b466e6b67b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8a2a900c-c589-4e2e-aed2-2a397bb7b72e",
+			"key": "url",
+			"value": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com"
+		},
+		{
+			"id": "1a7c9027-9af0-402c-bbf2-77270be0e8dd",
+			"key": "id",
+			"value": ""
+		},
+		{
+			"id": "7bbc4ecd-5f0f-4db8-abc5-3be5fdf7a7ad",
+			"key": "id_token",
+			"value": ""
+		},
+		{
+			"id": "58a6b3e4-d6cb-407a-802e-41ca471d9a08",
+			"key": "user",
+			"value": "admin_automation",
+			"type": "string"
+		},
+		{
+			"id": "31bf0cc3-579e-4c63-a3cd-3130afaad013",
+			"key": "password",
+			"value": "admin_automation",
+			"type": "string"
+		}
+	]
+}
